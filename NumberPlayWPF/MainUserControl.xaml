@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="NumberPlayWPF.MainUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NumberPlayWPF"
+             mc:Ignorable="d" 
+            xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="20"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        d:DesignHeight="800" 
+        d:DesignWidth="1200">
+    <Grid Name="GridMainPanel">
+        <Grid Background="#082032">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <StackPanel Grid.Column="0"
+                            Margin="10,120,10,0">
+                    <Button md:TextFieldAssist.TextFieldCornerRadius="20"
+                            Content="Ro'xatdan o'tish"
+                            FontWeight="Light"
+                            BorderThickness="0" 
+                            Click="Button_Click"
+                            Name="StartBtn"
+                            FontSize="20"/>
+                    <TextBox Name="TimeBtn"
+                             Foreground="White"
+                             FontWeight="Light"
+                             md:TextFieldAssist.UnderlineCornerRadius="20"
+                             Background="#2C394B"
+                             Margin="0,20,0,0"
+                             md:HintAssist.Hint="Vaqtni kiriting:"
+                             Padding="10,5,10,4"
+                             MaxLength="3"
+                             MinLines="1"/>
+                    <TextBlock Margin="10,20,0,0"
+                               Foreground="White"
+                               FontWeight="Light"
+                               Opacity="0.5"
+                               Text="Son oralig'in kiriting:"/>
+                    <TextBox Name="StartNumber"
+                             Foreground="White"
+                             FontWeight="Light"
+                             md:TextFieldAssist.UnderlineCornerRadius="20"
+                             Background="#2C394B"
+                             md:HintAssist.Hint="Boshlanish son kiriting:"
+                             Padding="10,5,10,4"
+                             MaxLength="10"
+                             MinLines="1"/>
+                    <TextBox Name="FinishNumber"
+                             Foreground="White"
+                             FontWeight="Light"
+                             md:TextFieldAssist.UnderlineCornerRadius="20"
+                             Background="#2C394B"
+                             Margin="0,20,0,0"
+                             md:HintAssist.Hint="Oxirgi son kiriting:"
+                             Padding="10,5,10,4"
+                             MaxLength="30"
+                             MinLines="1"/>
+                    <TextBox Name="MaxNumber"
+                             Foreground="White"
+                             FontWeight="Light"
+                             md:TextFieldAssist.UnderlineCornerRadius="20"
+                             Background="#2C394B"
+                             Margin="0,20,0,0"
+                             md:HintAssist.Hint="Nechta javobdan keyin to'xtasin:"
+                             Padding="10,5,2,4"
+                             FontSize="15"
+                             MaxLength="3"
+                             MinLines="1"/>
+                    <TextBlock Margin="10,20,0,0"
+                               Foreground="White"
+                               FontWeight="Light"
+                               Opacity="0.5"
+                               FontSize="15"
+                               Text="Siz qanday amallar yoradmida"/>
+                    <TextBlock Margin="10,0,0,0"
+                               Foreground="White"
+                               FontWeight="Light"
+                               Opacity="0.5"
+                               FontSize="15"
+                               Text="misollarni ishlomoqchisiz:"/>
+                    <CheckBox Content="Ko'paytirish:"
+                              Background="Red"
+                              Foreground="Snow"
+                              Margin="10,0,10,5"
+                              FontWeight="Light"
+                              FontSize="18"
+                              OpacityMask="Red"
+                              Opacity="0.5"
+                              InkCanvas.Left="10"
+                              InkCanvas.Right="10" 
+                              Name="Kopaytirish">
+
+                    </CheckBox>
+                    <CheckBox Name="Bolish"
+                        Content="Bo'lish:"
+                              Background="OrangeRed"
+                              Foreground="Snow"
+                              Margin="10,0,10,5"
+                              FontWeight="Light"
+                              FontSize="18"
+                              OpacityMask="White"
+                              Opacity="0.5"/>
+                    <CheckBox Content="Qo'shish"
+                              Name="Qoshish"
+                              Background="Orange"
+                              Foreground="Snow"
+                              Margin="10,0,10,5"
+                              FontWeight="Light"
+                              FontSize="18"
+                              OpacityMask="White"
+                              Opacity="0.5"/>
+                    <CheckBox Content="Ayirish:"
+                              Name="Ayrish"
+                              Background="Yellow"
+                              Foreground="Snow"
+                              Margin="10,0,10,20"
+                              FontWeight="Light"
+                              FontSize="18"
+                              OpacityMask="White"
+                              Opacity="0.5"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1"
+                  Background="Red"/>
+            <Grid Grid.Column="2"
+                  Name="AddUserC">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock Margin="0,10,0,0"
+                               Foreground="Red"
+                               FontWeight="Light"
+                           FontSize="20"
+                           Visibility="Hidden"
+                               Opacity="1"
+                           Name="InformationText"
+                           Text="Siz hammasini to'liq to'ldirmadingiz!!!"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="1"
+                      Name="DateGridPanel">
+                    <DataGrid x:Name="dataGrid"
+                              Loaded="dataGrid_Loaded"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+                              >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№"
+                                                Width="60"
+                                                Binding="{Binding ID}"/>
+                            <DataGridTextColumn Header="FirstName"
+                                                Width="*"
+                                                Binding="{Binding FirstName}"/>
+                            <DataGridTextColumn Header="LastName"
+                                                Width="*"
+                                                Binding="{Binding LastName}"/>
+                            <DataGridTextColumn Header="Username"
+                                                Width="*"
+                                                Binding="{Binding Username}"/>
+                            <DataGridTextColumn Header="Question"
+                                                Width="130"
+                                                Binding="{Binding AllAnswer}"/>
+                            <DataGridTextColumn Header="Answer"
+                                                Width="120"
+                                                Binding="{Binding Answer}"/>
+                            <DataGridTextColumn Header="Time"
+                                                Width="100"
+                                                Binding="{Binding Time}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

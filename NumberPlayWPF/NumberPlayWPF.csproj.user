@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\C# ishlarim\NumberPlayWPF\NumberPlayWPF\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Account.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FinishUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainCheif.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlayUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Account.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FinishUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainCheif.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlayUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
